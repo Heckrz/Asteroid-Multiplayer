@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="cw.css">
-    <script src="./cw.js" defer></script>
-	<title>Game</title>
+	<link rel="stylesheet" type="text/css" href="cw.css">
+	<title>Shooter</title>
 </head>
 <body>
-    <h1>welcome to astroids</h1>
-    ENTER USERNAME:<input type=text id="username"/>
+	<div id="game">
+		<div id="sprite-container">
+			<img src="ship.png" id="sprite">
+		</div>
+		<div id="bullet-container"></div>
+		<div id="ennemy-container"></div>
+		<p id="intro">
+			Press <strong>arrows</strong> to move <br/>
+			Press <strong>space</strong> to shoot <br/>
+			Press <strong>space</strong> to start <br/>
+			Press <strong>P</strong> to pause <br/>
+		</p>
+		<header>
+			<div id="hearts">
+				<img src="lives.png" class="heart" />
+				<img src="lives.png" class="heart" />
+				<img src="lives.png" class="heart" />
+			</div>
+			<label id="highScore">High Score : 0</label>
+			<div id="texts">
+				<label id="score"></label>
+				<label id="level"></label>
+			</div>
+		</header>
+	</div>
+	<script type="text/javascript" src="cw.js"></script>
 </body>
 </html>
