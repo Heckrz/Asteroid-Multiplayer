@@ -2,7 +2,7 @@ var username = prompt("What is your name?");
 var gameCanvas = document.getElementById('game');
 var player = document.getElementById('sprite');
 var bullet_container = document.getElementById('bullet-container');
-var ennemy_container = document.getElementById('ennemy-container');
+var ennemy_container = document.getElementById('enemy-container');
 var heart_container = document.getElementById('hearts');
 var hearts = Array.from(document.querySelectorAll('.heart'));
 var scoreText = document.getElementById('score');
@@ -17,12 +17,12 @@ var healthpoints = hearts.length;
 
 var pause = true;
 
-var ennemies = [];
+var enemies = [];
 var bullets = [];
 
 var lastTimeRender = 0;
 var lastTimeShot = 0;
-var lastTimeEnnemy  = 0;
+var lastTimeEnemy  = 0;
 
 let ArrowDown = false;
 let ArrowUp = false;
