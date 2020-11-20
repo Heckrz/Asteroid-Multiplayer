@@ -9,3 +9,100 @@ header {
 	flex-direction: row;
 	justify-content: space-between;
 }
+
+#texts label {
+	font-smooth: never;
+	-webkit-font-smoothing : none;
+	color: lawngreen;
+	font-size: 20px;
+	font-family: pixelFont;
+	margin-right: 30px;
+}
+
+#game {
+	background-color: #1c1eaa;
+	width 			: 960px;
+	height 			: 540px;
+	overflow 		: hidden;
+	margin 			: 0px;
+	padding 		: 0px;  
+}
+
+#sprite {
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	margin: 0px;
+	width: 100px;
+	height: 100px;
+	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+  						  */  
+}
+
+.bullet {
+	background-color: rgb(98, 230, 98);
+	position: absolute;
+	width: 18px;
+	height: 8px;
+}
+
+.enemy {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  	*/
+    image-rendering: -moz-crisp-edges;          /* Firefox                        	*/
+    image-rendering: -o-crisp-edges;            /* Opera                          	*/
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) 	*/
+    image-rendering: pixelated; 				/* Chrome 							*/
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                	*/
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+  						  	*/
+}
+
+#enemy-container, #bullet-container, #sprite-container {
+	position: relative;
+}
+
+.heart {
+	margin: 5px;
+	margin-right: 0px;
+	width: 40px;
+	height: 40px;
+	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  	*/
+    image-rendering: -moz-crisp-edges;          /* Firefox                        	*/
+    image-rendering: -o-crisp-edges;            /* Opera                          	*/
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) 	*/
+    image-rendering: pixelated; 				/* Chrome 							*/
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                	*/
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+  						  	*/
+}
+
+#hearts {
+	width: 140px;
+	display: flex;
+	flex-direction: row;
+}
+
+#highScore {
+	color: lawngreen;
+	font-size: 20px;
+	font-family: pixelFont;
+}
+
+#intro {
+	color: lawngreen;
+	font-size: 30px;
+	font-family: pixelFont;
+	position: absolute;
+	left: 480px;
+	top: 150px;
+}
+
+#intro strong {
+	font-size: 35px;
+}
