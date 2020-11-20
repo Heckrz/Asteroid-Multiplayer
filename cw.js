@@ -298,3 +298,33 @@ function scoreUp() {
         }
     }
 }
+
+function removeHeart() {
+    hearts[0].remove();
+    hearts.splice(0, 1);
+}
+
+function addHeart(qt) {
+    for (var i=0; i<qt; i++) {
+        let newElement = document.createElement('img');
+        newElement.src = 'lives.png';
+        newElement.className = 'heart';
+        heart_container.appendChild(newElement);
+        hearts.push(newElement);
+    }
+}
+
+function playerHurt() {
+    healthpoints -= 1;
+    // don't have one HP
+    if (healthpoints) {
+        removeHeart();
+    } else {
+        score = 0;
+        level = 0;
+        removeHeart();
+        addHeart(3)
+        healthpoints = 3;
+        pause = true;
+        introText.style.display = 'initial';
+    }
