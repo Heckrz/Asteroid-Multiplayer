@@ -273,3 +273,28 @@ class Enemy {
         this.image.remove();
     }
 }
+function move(mx, my) {
+    playerr.x += mx * gameSettings.playerSpeed;
+    playerr.y += my * gameSettings.playerSpeed;
+    player.style.left = String(playerr.x) + 'px';
+    player.style.top = String(playerr.y) + 'px';
+    collideWorldBounds(playerr, 960, 540);
+}
+
+function randInt(min, max) {
+    let a = max-min+1;
+    return Math.floor(Math.random()*a)+min;
+}
+
+function scoreUp() {
+    score += 16;
+    if (score > highScore) {
+        highScore = score;
+    }
+    if (Math.floor(score/100)>=level+1) {
+        level+=1;
+        if (level>13) {
+            gameSettings.enemySpeed += 0.3;
+        }
+    }
+}
