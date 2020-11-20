@@ -109,3 +109,42 @@ window.addEventListener('keyup', function(keyy) {
 
     event.preventDefault();
 }, true);
+
+pause = true;
+function main_loop(currentTime) {
+    window.requestAnimationFrame(main_loop);
+    const secondsSinceLastRender = (currentTime - lastTimeRender) / 1000;
+    if (secondsSinceLastRender < 1/100 || pause) {return;}
+    /* -------------------------- */
+    introText.style.display = 'none';
+    scoreText.innerHTML = 'Score : ' + String(score);
+    highScoreText.innerHTML = 'High Score : ' + String(highScore);
+    levelText.innerHTML = 'Level : ' + String(level);
+
+    //make the bullets go forward
+    for (const bullet of bullets) {
+        bullet.update();
+    }
+    for (const e of ennemies) {
+        e.update();
+    }
+
+
+    // Shooting event
+    if (SpaceBar) {
+        if ((currentTime - lastTimeShot)/1000 >= 0.3) {
+            let newBull = new Bullet(bullet_container, player.offsetLeft, player.offsetTop);
+            lastTimeShot = currentTime;
+        }
+    }
+
+    // just so that it does not become unplayable
+    let levell = level;
+    if (level > 13) {
+        levell = 13;
+    }
+    if ((currentTime - lastTimeEnemy)/1000 > 2 - 0.05*levell*gameSettings.spawnRate) {
+        let newEnemy = new Enemy(enemy_container, gameCanvas.offsetWidth, randInt(0-enemy_container.offsetTop, Math.floor(gameCanvas.offsetHeight-player.offsetHeight)));
+        lastTimeEnemy = currentTime;
+    }
+}
