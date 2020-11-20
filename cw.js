@@ -194,3 +194,82 @@ for (var lx=0, ly=0;
     lx += element.offsetLeft, ly += element.offsetTop, element = element.offsetParent);
 return {x: lx, y: ly};
 }
+class Bullet {
+    constructor(scene, x, y) {
+        this.x = x + player.offsetWidth + 4;
+        this.y = y + player.offsetHeight/2 - 4;
+        this.scene = scene;
+
+        this.bullet = document.createElement('div');
+        this.bullet.className = "bullet";
+        this.bullet.style.left = String(this.x) + 'px';
+        this.bullet.style.top = String(this.y) + 'px';
+
+        this.scene.appendChild(this.bullet);
+        bullets.push(this);
+
+        this.centerY = this.y + this.bullet.offsetHeight/2;
+        this.centerX = this.x + this.bullet.offsetWidth/2;
+    }
+
+    update() {
+        this.x += gameSettings.bulletSpeed;
+        this.centerX = this.x + this.bullet.offsetWidth/2;
+        this.bullet.style.left = String(this.x) +'px';
+        if (this.x + this.bullet.offsetWidth >= getCoords(this.scene).x + this.scene.offsetWidth) {
+            this.destroy();
+        }
+    }
+
+    destroy() {
+        bullets.splice(bullets.indexOf(this), 1);
+        this.bullet.remove();
+    }
+}
+
+class Enemy {
+    constructor(scene, x, y) {
+        this.scene = scene;
+        this.x = x;
+        this.y = y;
+        this.speed = randInt(1, gameSettings.enemySpeed+1);
+
+        this.image = document.createElement('img');
+        this.image.src = 'asstroid2.png';
+        this.image.className = 'enemy';
+        this.image.style.left = String(this.x) + 'px';
+        this.image.style.top = String(this.y) + 'px';
+
+        ennemies.push(this);
+        this.scene.appendChild(this.image);
+
+        this.centerX = this.x + this.image.offsetWidth/2;
+        this.centerY = this.y + this.image.offsetHeight/2;
+    }
+
+    update() {
+        this.x -= this.speed;
+        this.centerX = this.x + this.image.offsetWidth/2;
+        this.image.style.left = String(this.x) + 'px';
+        if (this.x + this.image.offsetWidth < 0) {
+            this.destroy();
+            playerHurt();
+        }
+        for (const bull of bullets) {
+            if (Math.sqrt((this.centerX-bull.centerX)**2 + (this.centerY-bull.centerY)**2)<50) {
+                this.destroy();
+                bull.destroy();
+                scoreUp();
+            }
+        }
+        if (Math.sqrt((this.centerX-playerr.centerX)**2 + (this.centerY-playerr.centerY)**2)<100) {
+            this.destroy();
+            playerHurt();
+        }
+    }
+
+    destroy() {
+        ennemies.splice(ennemies.indexOf(this), 1);
+        this.image.remove();
+    }
+}
