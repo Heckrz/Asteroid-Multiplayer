@@ -73,3 +73,39 @@ window.addEventListener('keydown', function(key) {
         default:
             return;
     }
+
+    if (key.key != 'p' && pause) {
+        pause = false;
+        lastTimeShot = -1000;
+        lastTimeEnemy = -1000;
+    }
+
+    event.preventDefault();
+}, true);
+
+window.addEventListener('keyup', function(keyy) {
+    if (keyy.defaultPrevented) {
+        return;
+    }
+    switch (keyy.key) {
+        case "ArrowDown":
+            ArrowDown = false;
+            break;
+        case "ArrowUp":
+            ArrowUp = false;
+            break;
+        case "ArrowLeft":
+            ArrowLeft = false;
+            break;
+        case "ArrowRight":
+            ArrowRight = false;
+            break;
+        case " ":
+            SpaceBar = false;
+            break;
+        default:
+            return;
+    }
+
+    event.preventDefault();
+}, true);
