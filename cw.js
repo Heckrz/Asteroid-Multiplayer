@@ -147,7 +147,7 @@ function main_loop(currentTime) {
         let newEnemy = new Enemy(enemy_container, gameCanvas.offsetWidth, randInt(0-enemy_container.offsetTop, Math.floor(gameCanvas.offsetHeight-player.offsetHeight)));
         lastTimeEnemy = currentTime;
     }
-}
+
 //player movement
 if (ArrowDown) {
     move(0, 1);
