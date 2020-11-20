@@ -29,3 +29,47 @@ let ArrowUp = false;
 let ArrowLeft = false;
 let ArrowRight = false;
 let SpaceBar = false;
+
+var playerr = {
+    x: 100,
+    y: 100,
+    centerX: 150,
+    centerY: 150
+}
+var gameSettings = {
+    playerSpeed     : 12,
+    bulletSpeed     : 13,
+    enemySpeed     : 4,
+    spawnRate       : 2
+}
+
+window.addEventListener('keydown', function(key) {
+    if (key.defaultPrevented) {
+        return;
+    }
+    switch (key.key) {
+        case "ArrowDown":
+            ArrowDown = true;
+            break;
+        case "ArrowUp":
+            ArrowUp = true;
+            break;
+        case "ArrowLeft":
+            ArrowLeft = true;
+            break;
+        case "ArrowRight":
+            ArrowRight = true;
+            break;
+        case " ":
+            SpaceBar = true;
+            break;
+        case "p":
+            if (!pause) {
+                pause = true;
+            } else {
+                pause = false;
+            }
+            break;
+        default:
+            return;
+    }
