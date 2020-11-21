@@ -328,3 +328,24 @@ function playerHurt() {
         pause = true;
         introText.style.display = 'initial';
     }
+    
+// go back to middle
+playerr.x = 150;
+player.style.left = String(playerr.x) + 'px';
+playerr.y = 200;
+player.style.top = String(playerr.y) + 'px';
+
+// kill monsters (twice bc sometimes it didn't work)
+for (const monster of ennemies) {
+    monster.destroy();
+}
+while (ennemies.length != 0) {
+    for (const monster of ennemies) {
+        monster.destroy();
+    }
+}
+// kill bullets
+for (const b of bullets) {
+    b.destroy();
+}
+}
