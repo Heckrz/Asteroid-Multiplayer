@@ -2,7 +2,7 @@ var username = prompt("What is your name?");
 var gameCanvas = document.getElementById('game');
 var player = document.getElementById('sprite');
 var bullet_container = document.getElementById('bullet-container');
-var ennemy_container = document.getElementById('enemy-container');
+var enemy_container = document.getElementById('enemy-container');
 var heart_container = document.getElementById('hearts');
 var hearts = Array.from(document.querySelectorAll('.heart'));
 var scoreText = document.getElementById('score');
@@ -17,7 +17,7 @@ var healthpoints = hearts.length;
 
 var pause = true;
 
-var enemies = [];
+var ennemies = [];
 var bullets = [];
 
 var lastTimeRender = 0;
@@ -148,52 +148,53 @@ function main_loop(currentTime) {
         lastTimeEnemy = currentTime;
     }
 
-//player movement
-if (ArrowDown) {
-    move(0, 1);
-}
-if (ArrowUp) {
-    move(0, -1);
-}
-if (ArrowLeft) {
-    move(-1, 0);
-}
-if (ArrowRight) {
-    move(1, 0);
-}
-playerr.centerX = player.offsetLeft + player.offsetWidth/2;
-playerr.centerY = player.offsetTop + player.offsetHeight/2;
+    //player movement
+    if (ArrowDown) {
+        move(0, 1);
+    }
+    if (ArrowUp) {
+        move(0, -1);
+    }
+    if (ArrowLeft) {
+        move(-1, 0);
+    }
+    if (ArrowRight) {
+        move(1, 0);
+    }
+    playerr.centerX = player.offsetLeft + player.offsetWidth/2;
+    playerr.centerY = player.offsetTop + player.offsetHeight/2;
 
-/* -------------------------- */
-lastTimeRender = currentTime;
+    /* -------------------------- */
+    lastTimeRender = currentTime;
 }
 window.requestAnimationFrame(main_loop);
 
 function collideWorldBounds(obj, w, h) {
-if (obj.x + player.width > w) {
-    player.style.left = String(w - player.width) + 'px';
-    obj.x = w - player.width;
-}
-if (obj.x < 0) {
-    player.style.left = '0px';
-    obj.x = 0;
-}
-if (obj.y + player.height > h) {
-    player.style.top = String(h - player.height) + 'px';
-    obj.y = h - player.height ;
-}
-if (obj.y < 0) {
-    player.style.top = '0px';
-    obj.y = 0;
-}
+    if (obj.x + player.width > w) {
+        player.style.left = String(w - player.width) + 'px';
+        obj.x = w - player.width;
+    }
+    if (obj.x < 0) {
+        player.style.left = '0px';
+        obj.x = 0;
+    }
+    if (obj.y + player.height > h) {
+        player.style.top = String(h - player.height) + 'px';
+        obj.y = h - player.height ;
+    }
+    if (obj.y < 0) {
+        player.style.top = '0px';
+        obj.y = 0;
+    }
 }
 
 function getCoords(element) {
-for (var lx=0, ly=0; 
-    element != null; 
-    lx += element.offsetLeft, ly += element.offsetTop, element = element.offsetParent);
-return {x: lx, y: ly};
+    for (var lx=0, ly=0; 
+        element != null; 
+        lx += element.offsetLeft, ly += element.offsetTop, element = element.offsetParent);
+    return {x: lx, y: ly};
 }
+
 class Bullet {
     constructor(scene, x, y) {
         this.x = x + player.offsetWidth + 4;
@@ -273,6 +274,7 @@ class Enemy {
         this.image.remove();
     }
 }
+
 function move(mx, my) {
     playerr.x += mx * gameSettings.playerSpeed;
     playerr.y += my * gameSettings.playerSpeed;
@@ -328,24 +330,25 @@ function playerHurt() {
         pause = true;
         introText.style.display = 'initial';
     }
-    
-// go back to middle
-playerr.x = 150;
-player.style.left = String(playerr.x) + 'px';
-playerr.y = 200;
-player.style.top = String(playerr.y) + 'px';
 
-// kill monsters (twice bc sometimes it didn't work)
-for (const monster of ennemies) {
-    monster.destroy();
-}
-while (ennemies.length != 0) {
+    // go back to middle
+    playerr.x = 150;
+    player.style.left = String(playerr.x) + 'px';
+    playerr.y = 200;
+    player.style.top = String(playerr.y) + 'px';
+    
+    // kill monsters (twice bc sometimes it didn't work)
     for (const monster of ennemies) {
         monster.destroy();
     }
+    while (ennemies.length != 0) {
+        for (const monster of ennemies) {
+            monster.destroy();
+        }
+    }
+    // kill bullets
+    for (const b of bullets) {
+        b.destroy();
+    }
 }
-// kill bullets
-for (const b of bullets) {
-    b.destroy();
-}
-}
+
