@@ -1,0 +1,27 @@
+{
+  "name": "asteroid-multiplayer",
+  "version": "1.0.0",
+  "description": "we made an asteroid shooter that takes inspiration from the classic asteroid shooter arcade game\r in the game the user is the space ship and can control it by using the up,down,left,right arrow keys and can shoot the oncoming asteroids by using the space key\r there is a highscore label along with the score and level labels . the highscore label shows the highest score of that session and the score label shows the current score\r we have made the game using javascript , css and html.\r the members of our group and the roles performed:\r omar : server side and game programming\r jagmeet : server side and game programming\r sabah : game programming\r zainab : game programming \r jad : game programming and recording",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heckrz/Asteroid-Multiplayer.git"
+  },
+  "author": "jagmeet and omar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heckrz/Asteroid-Multiplayer/issues"
+  },
+  "homepage": "https://github.com/Heckrz/Asteroid-Multiplayer#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "save": "^2.4.0",
+    "socket.io": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
