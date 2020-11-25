@@ -309,7 +309,7 @@ function removeHeart() {
 function addHeart(qt) {
     for (var i=0; i<qt; i++) {
         let newElement = document.createElement('img');
-        newElement.src = 'lives.png';
+        newElement.src = '../images/lives.png';
         newElement.className = 'heart';
         heart_container.appendChild(newElement);
         hearts.push(newElement);
