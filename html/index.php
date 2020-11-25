@@ -1,5 +1,9 @@
-<?php
+    <?php
 
-include_once("../html/cw.html")
+
+
+include_once("cw.html")
+
+
 
 ?>
