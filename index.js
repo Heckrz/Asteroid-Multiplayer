@@ -8,7 +8,7 @@ var server = app.listen(4000,function(){
     console.log('hi');
 });
 
-app.use(express.static('html'));
+app.use(express.static('./html/cw.html'));
 var io = socket(server);
 
 io.on('connection',function(socket){

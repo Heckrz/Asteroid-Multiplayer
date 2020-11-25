@@ -1,4 +1,4 @@
-import * from '../javascript/cw'
+import * from '../javascript/cw.js'
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
