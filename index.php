@@ -1,5 +1,5 @@
 <?php
 
-include_once("cw.html")
+include_once("../html/cw.html")
 
 ?>
