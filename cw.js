@@ -2,7 +2,7 @@ var username = prompt("What is your name?");
 var gameCanvas = document.getElementById('game');
 var player = document.getElementById('sprite');
 var bullet_container = document.getElementById('bullet-container');
-var enemy_container = document.getElementById('enemy-container');
+var asteroid_container = document.getElementById('asteroid-container');
 var heart_container = document.getElementById('hearts');
 var hearts = Array.from(document.querySelectorAll('.heart'));
 var scoreText = document.getElementById('score');
@@ -22,7 +22,7 @@ var bullets = [];
 
 var lastTimeRender = 0;
 var lastTimeShot = 0;
-var lastTimeEnemy  = 0;
+var lastTimeasteroid  = 0;
 
 let ArrowDown = false;
 let ArrowUp = false;
@@ -39,7 +39,7 @@ var playerr = {
 var gameSettings = {
     playerSpeed     : 12,
     bulletSpeed     : 13,
-    enemySpeed     : 4,
+    asteroidSpeed     : 4,
     spawnRate       : 2
 }
 
@@ -77,7 +77,7 @@ window.addEventListener('keydown', function(key) {
     if (key.key != 'p' && pause) {
         pause = false;
         lastTimeShot = -1000;
-        lastTimeEnemy = -1000;
+        lastTimeasteroid = -1000;
     }
 
     event.preventDefault();
@@ -143,9 +143,9 @@ function main_loop(currentTime) {
     if (level > 13) {
         levell = 13;
     }
-    if ((currentTime - lastTimeEnemy)/1000 > 2 - 0.05*levell*gameSettings.spawnRate) {
-        let newEnemy = new Enemy(enemy_container, gameCanvas.offsetWidth, randInt(0-enemy_container.offsetTop, Math.floor(gameCanvas.offsetHeight-player.offsetHeight)));
-        lastTimeEnemy = currentTime;
+    if ((currentTime - lastTimeasteroid)/1000 > 2 - 0.05*levell*gameSettings.spawnRate) {
+        let newasteroid = new asteroid(asteroid_container, gameCanvas.offsetWidth, randInt(0-asteroid_container.offsetTop, Math.floor(gameCanvas.offsetHeight-player.offsetHeight)));
+        lastTimeasteroid = currentTime;
     }
 
     //player movement
@@ -228,16 +228,16 @@ class Bullet {
     }
 }
 
-class Enemy {
+class asteroid {
     constructor(scene, x, y) {
         this.scene = scene;
         this.x = x;
         this.y = y;
-        this.speed = randInt(1, gameSettings.enemySpeed+1);
+        this.speed = randInt(1, gameSettings.asteroidSpeed+1);
 
         this.image = document.createElement('img');
         this.image.src = 'asstroid2.png';
-        this.image.className = 'enemy';
+        this.image.className = 'asteroid';
         this.image.style.left = String(this.x) + 'px';
         this.image.style.top = String(this.y) + 'px';
 
@@ -296,7 +296,7 @@ function scoreUp() {
     if (Math.floor(score/100)>=level+1) {
         level+=1;
         if (level>13) {
-            gameSettings.enemySpeed += 0.3;
+            gameSettings.asteroidSpeed += 0.3;
         }
     }
 }
@@ -322,6 +322,7 @@ function playerHurt() {
     if (healthpoints) {
         removeHeart();
     } else {
+        alert ("Good try , " + username + ". Your score is " + score + ". Your high score is " + highScore)
         score = 0;
         level = 0;
         removeHeart();
