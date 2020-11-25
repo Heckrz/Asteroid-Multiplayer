@@ -236,7 +236,7 @@ class asteroid {
         this.speed = randInt(1, gameSettings.asteroidSpeed+1);
 
         this.image = document.createElement('img');
-        this.image.src = 'asstroid2.png';
+        this.image.src = '../images/asteroid.png';
         this.image.className = 'asteroid';
         this.image.style.left = String(this.x) + 'px';
         this.image.style.top = String(this.y) + 'px';
