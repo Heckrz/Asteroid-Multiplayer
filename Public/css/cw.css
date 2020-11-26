@@ -4,6 +4,7 @@
 }
 
 body {
+	background-image: url('../images/back.png');
 	display: flex;
 	justify-content: center;
 	position: relative;
@@ -27,8 +28,8 @@ header {
 
 #game {
 	background-image: url('../images/back.png');
-	width 			: 3000px;
-	height 			: 800px;
+	width 			: 1000px;
+	height 			: 600px;
 	overflow 		: hidden;
 	margin 			: 0px;
 	padding 		: 0px;  
