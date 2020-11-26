@@ -28,8 +28,13 @@ header {
 
 #game {
 	background-image: url('../images/back.png');
+<<<<<<< HEAD
 	width 			: 1000px;
 	height 			: 600px;
+=======
+	width 			: 3000px;
+	height 			: 1000px;
+>>>>>>> 109e26bfbbef9958ed80bb2de60ab58774d50582
 	overflow 		: hidden;
 	margin 			: 0px;
 	padding 		: 0px;  
@@ -42,11 +47,11 @@ header {
 	margin: 0px;
 	width: 100px;
 	height: 100px;
-	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+	image-rendering: optimizeSpeed;             /* optimizing speed  */
     image-rendering: -moz-crisp-edges;          /* Firefox                        */
     image-rendering: -o-crisp-edges;            /* Opera                          */
-    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
-    image-rendering: pixelated; /* Chrome */
+    image-rendering: -webkit-optimize-contrast; /* Chrome */
+    image-rendering: pixelated;					 /* Chrome */
     image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+  						  */  
 }
@@ -62,10 +67,10 @@ header {
 	position: absolute;
 	width: 100px;
 	height: 100px;
-	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  	*/
+	image-rendering: optimizeSpeed;             /* optimizing speed  	*/
     image-rendering: -moz-crisp-edges;          /* Firefox                        	*/
     image-rendering: -o-crisp-edges;            /* Opera                          	*/
-    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) 	*/
+    image-rendering: -webkit-optimize-contrast; /* Chrome  	*/
     image-rendering: pixelated; 				/* Chrome 							*/
     image-rendering: optimize-contrast;         /* CSS3 Proposed                	*/
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+  						  	*/
@@ -80,10 +85,10 @@ header {
 	margin-right: 0px;
 	width: 40px;
 	height: 40px;
-	image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  	*/
+	image-rendering: optimizeSpeed;             /* optimizing speed  	*/
     image-rendering: -moz-crisp-edges;          /* Firefox                        	*/
     image-rendering: -o-crisp-edges;            /* Opera                          	*/
-    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) 	*/
+    image-rendering: -webkit-optimize-contrast; /* Chrome  	*/
     image-rendering: pixelated; 				/* Chrome 							*/
     image-rendering: optimize-contrast;         /* CSS3 Proposed                	*/
     -ms-interpolation-mode: nearest-neighbor;   /* IE8+  						  	*/

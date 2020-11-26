@@ -280,7 +280,11 @@ function move(mx, my) {
     playerr.y += my * gameSettings.playerSpeed;
     player.style.left = String(playerr.x) + 'px';
     player.style.top = String(playerr.y) + 'px';
+<<<<<<< HEAD
     collideWorldBounds(playerr, 1000, 600);
+=======
+    collideWorldBounds(playerr, 3000, 1000);
+>>>>>>> 109e26bfbbef9958ed80bb2de60ab58774d50582
 }
 
 function randInt(min, max) {
