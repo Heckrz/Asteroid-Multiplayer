@@ -1,3 +1,8 @@
+@font-face {
+	font-family: pixelFont;
+	src: url(../commodore_64/Commodore\ Rounded\ v1.2.ttf);
+}
+
 body {
 	display: flex;
 	justify-content: center;
@@ -19,10 +24,11 @@ header {
 	margin-right: 30px;
 }
 
+
 #game {
-	background-color: #1c1eaa;
-	width 			: 960px;
-	height 			: 540px;
+	background-image: url('../images/back.png');
+	width 			: 3000px;
+	height 			: 800px;
 	overflow 		: hidden;
 	margin 			: 0px;
 	padding 		: 0px;  
