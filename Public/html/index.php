@@ -2,7 +2,7 @@
 
 
 
-include_once("cw.html")
+include_once("index.html")
 
 
 
