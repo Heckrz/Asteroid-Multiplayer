@@ -28,13 +28,8 @@ header {
 
 #game {
 	background-image: url('../images/back.png');
-<<<<<<< HEAD
 	width 			: 1000px;
 	height 			: 600px;
-=======
-	width 			: 3000px;
-	height 			: 1000px;
->>>>>>> 109e26bfbbef9958ed80bb2de60ab58774d50582
 	overflow 		: hidden;
 	margin 			: 0px;
 	padding 		: 0px;  
