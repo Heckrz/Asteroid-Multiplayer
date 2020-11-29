@@ -20,3 +20,9 @@ Jagmeet : Server Side and Game Programming
 Sabah : Game Programming
 Zainab : Game Programming
 Jad : Game Programming, Game Designing and Recordings
+
+Link to Video Recording:
+https://youtu.be/1WFqsWb7zXo
+
+Link to Game:
+https://asteroid-shooter.web.app/
